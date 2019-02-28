@@ -9,3 +9,4 @@ while currency[-1] not in ['N','n']:
     else:
         print("请输入正确的数值")
     currency = input("请输入带单位的货币数值：")
+print("Python github test")
