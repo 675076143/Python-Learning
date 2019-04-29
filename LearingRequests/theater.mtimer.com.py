@@ -119,8 +119,11 @@ def getMovieDetail(data,dataUrl):
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1;win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
     url = re.findall(regImg, data_old, re.S | re.M)[0]
     pic = requests.get(url=url, headers=headers)
-    with open(".\images\mtimer\ "+re.findall(regHeader, data_old, re.S | re.M)[0]+".jpg", 'wb') as fp:
-        fp.write(pic.content)
+    try:
+        with open(".\images\ "+re.findall(regHeader, data_old, re.S | re.M)[0]+".jpg", 'wb') as fp:
+            fp.write(pic.content)
+    except:
+        print("请在该文件根目录下新建images文件夹用于保存图片")
 
     return data_dict
 
